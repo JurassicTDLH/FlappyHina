@@ -28,13 +28,13 @@ const loadingPercentage = document.querySelector(
 const buildUrl = 'Build';
 const loaderUrl = buildUrl + "/FlappyHinaBuildTest.loader.js";
 const config = {
-  dataUrl: buildUrl + "/FlappyHinaBuildTest.data",
-  frameworkUrl: buildUrl + "/FlappyHinaBuildTest.framework.js",
-  codeUrl: buildUrl + "/FlappyHinaBuildTest.wasm",
-  streamingAssetsUrl: "StreamingAssets",
-  companyName: "MillenniumHightTechDevelopmentDepartment",
-  productName: "FlappyHina",
-  productVersion: "1.0",
+        dataUrl: buildUrl + "/FlappyHinaBuildTest.data.br",
+        frameworkUrl: buildUrl + "/FlappyHinaBuildTest.framework.js.br",
+        codeUrl: buildUrl + "/FlappyHinaBuildTest.wasm.br",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "MillenniumHightTechDevelopmentDepartment",
+        productName: "FlappyHina",
+        productVersion: "1.0",
 };
 
 // By default Unity keeps WebGL canvas render target size matched with
