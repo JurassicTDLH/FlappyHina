@@ -34,7 +34,7 @@ const config = {
   streamingAssetsUrl: "StreamingAssets",
   companyName: "Millennium Hight Tech Development Department",
   productName: "Flappy Hina",
-  productVersion: "0.0.1",
+  productVersion: "1.0",
 };
 
 // By default Unity keeps WebGL canvas render target size matched with
