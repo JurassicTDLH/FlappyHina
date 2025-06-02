@@ -40,7 +40,7 @@ jobs:
       - name: Install dependcies
         run: pnpm install
       - name: Build
-        run: pnpm run build
+        run: pnpm approve-builds
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
