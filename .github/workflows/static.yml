@@ -33,14 +33,14 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-
+          node-version: 22
+          cache: pnpm
       - name: Install pnpm
         run: npm i -g pnpm
       - name: Install dependcies
         run: pnpm install
       - name: Build
-        run: pnpm approve-builds
+        run: pnpm run build
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
