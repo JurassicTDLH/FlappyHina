@@ -32,8 +32,8 @@ const config = {
   frameworkUrl: buildUrl + "/FlappyHinaBuildTest.framework.js",
   codeUrl: buildUrl + "/FlappyHinaBuildTest.wasm",
   streamingAssetsUrl: "StreamingAssets",
-  companyName: "Millennium Hight Tech Development Department",
-  productName: "Flappy Hina",
+  companyName: "MillenniumHightTechDevelopmentDepartment",
+  productName: "FlappyHina",
   productVersion: "1.0",
 };
 
