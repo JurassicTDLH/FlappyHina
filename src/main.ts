@@ -28,9 +28,9 @@ const loadingPercentage = document.querySelector(
 const buildUrl = 'Build';
 const loaderUrl = buildUrl + "/FlappyHinaBuildTest.loader.js";
 const config = {
-        dataUrl: buildUrl + "/FlappyHinaBuildTest.data.unityweb",
-        frameworkUrl: buildUrl + "/FlappyHinaBuildTest.framework.js.unityweb",
-        codeUrl: buildUrl + "/FlappyHinaBuildTest.wasm.unityweb",
+        dataUrl: buildUrl + "/FlappyHinaBuildTest.data.br",
+        frameworkUrl: buildUrl + "/FlappyHinaBuildTest.framework.js.br",
+        codeUrl: buildUrl + "/FlappyHinaBuildTest.wasm.br",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "MillenniumHightTechDevelopmentDepartment",
         productName: "FlappyHina",
