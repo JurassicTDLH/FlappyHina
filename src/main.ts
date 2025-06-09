@@ -82,6 +82,9 @@ if (isMobile(navigator).phone) {
   // Mobile device style: fill the whole browser client area with the game canvas:
   const htmlElement = document.querySelector("html") as HTMLHtmlElement;
   htmlElement.dataset.mobile = "true";
+  container.className = "unity-mobile";
+  canvas.className = "unity-mobile";
+  
 
   // To lower canvas resolution on mobile devices to gain some
   // performance, uncomment the following line:
