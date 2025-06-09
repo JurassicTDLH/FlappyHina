@@ -40,7 +40,7 @@
     grid-template-areas: 'canvas';
     width: 100vw;
     width: 100dvw;
-    height: 50%;
+    height: 100%;
   }
 }
 
@@ -58,8 +58,8 @@
   &.unity-mobile {
     width: 100vw;
     width: 100dvw;
-    max-height: 100vh;
-    max-height: 100dvh;
+    max-height: 90vh;
+    max-height: 90dvh;
   }
 }
 
