@@ -109,7 +109,8 @@ function resetUnityIndexedDB() {
 const script = document.createElement('script');
 script.src = loaderUrl;
 script.onload = () => {
-  createUnityInstance(canvas, config, (progress: number) => {
+  window
+   .createUnityInstance(canvas, config, (progress: number) => {
     progressBarFull.style.width = 100 * progress + '%';
     if (progress - 0.89 <= 0) {
       loadingPercentage.innerText = (progress * 100).toFixed(2) + '%';
@@ -117,7 +118,7 @@ script.onload = () => {
       loadingPercentage.innerText = '正在解析游戏资源……';
       loadingPercentage.classList.add('no-after');
     }
-  })
+   })
     .then((unityInstance: Window['unityInstance']) => {
       loadingBar.style.display = 'none';
       requestShowFullscreenButton();
