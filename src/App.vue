@@ -17,7 +17,7 @@ const isTabletDevice = isMobile(window.navigator).tablet;
 if (isMobileDevice) {
   if (isLandscape.value) {
     if (!isTabletDevice) {
-      window.unityInstance?.SetFullscreen(1);
+      window.unityInstance?.SetFullscreen(0);
     }
   } else {
     window.unityInstance?.SetFullscreen(0);
@@ -26,7 +26,7 @@ if (isMobileDevice) {
     () => isLandscape.value,
     newValue => {
       if (newValue && isMobileDevice && !isTabletDevice) {
-        window.unityInstance?.SetFullscreen(1);
+        window.unityInstance?.SetFullscreen(0);
       } else {
         window.unityInstance?.SetFullscreen(0);
       }

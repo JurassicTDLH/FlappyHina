@@ -73,7 +73,7 @@ resizeCanvas();
 // config.matchWebGLToCanvasSize = false;
 
 function requestShowFullscreenButton() {
-  if (!isMobile(navigator).apple.device) {
+  if (!isMobile(navigator).phone) {
     fullscreenButton.classList.remove("hidden");
   }
 }
