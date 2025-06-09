@@ -39,6 +39,8 @@ jobs:
           cache: pnpm
       - name: Install dependcies
         run: pnpm install
+      - name: Install @vueuse/core
+        run: pnpm install @vueuse/core
       - name: Build
         run: pnpm run build
       - name: Setup Pages
