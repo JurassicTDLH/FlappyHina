@@ -73,8 +73,8 @@ resizeCanvas();
 // config.matchWebGLToCanvasSize = false;
 
 function requestShowFullscreenButton() {
-  if (!isMobile(navigator).phone) {
-    fullscreenButton.classList.remove("hidden");
+  if (isMobile(navigator).phone) {
+    fullscreenButton.style.display = 'none';
   }
 }
 
