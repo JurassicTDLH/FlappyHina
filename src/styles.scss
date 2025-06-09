@@ -9,7 +9,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding: 100px;
 }
 
 #game-container {
@@ -58,8 +58,8 @@
   &.unity-mobile {
     width: 100vw;
     width: 100dvw;
-    max-height: 110vh;
-    max-height: 110dvh;
+    max-height: 100vh;
+    max-height: 100dvh;
   }
 }
 
