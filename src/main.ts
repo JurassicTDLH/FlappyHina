@@ -1,4 +1,6 @@
 import { createApp } from 'vue';
+import { useThrottleFn } from "@vueuse/core";
+import { ref } from "vue";
 import './styles.scss';
 // @ts-ignore
 import App from './App.vue';
@@ -37,6 +39,32 @@ const config = {
         productVersion: "1.0",
 };
 
+function resizeCanvas() {
+  const canvas = document.querySelector("#unity-canvas") as HTMLCanvasElement;
+  const innerWidth = Math.min(window.innerWidth, 1280);
+  const aspectRatio = 16 / 9;
+  const innerHeight = Math.min(window.innerHeight, 720);
+  console.log("innerWidth:" + innerWidth, "innerHeight:" + innerHeight);
+
+  // 选取较小的一边作为基准
+  if (innerWidth < innerHeight) {
+    canvas.style.width = innerWidth + "px";
+    canvas.style.height = innerWidth / aspectRatio + "px";
+  } else {
+    // innerWidth > innerHeight
+    const shouldMaxWidth = innerHeight * aspectRatio <= innerWidth;
+    canvas.style.width =
+      `${shouldMaxWidth ? innerHeight * aspectRatio : innerWidth}` + "px";
+    canvas.style.height =
+      `${shouldMaxWidth ? innerHeight : innerWidth / aspectRatio}` + "px";
+  }
+}
+
+const handleResizeCanvas = useThrottleFn(() => resizeCanvas(), 200);
+
+window.addEventListener("resize", handleResizeCanvas);
+resizeCanvas();
+
 // By default Unity keeps WebGL canvas render target size matched with
 // the DOM size of the canvas element (scaled by window.devicePixelRatio)
 // Set this to false if you want to decouple this synchronization from
@@ -44,29 +72,25 @@ const config = {
 // the canvas DOM size and WebGL render target sizes yourself.
 // config.matchWebGLToCanvasSize = false;
 
-// if (isMobile(navigator).any) {
-//   // Mobile device style: fill the whole browser client area with the game canvas:
+function requestShowFullscreenButton() {
+  if (!isMobile(navigator).apple.device) {
+    fullscreenButton.classList.remove("hidden");
+  }
+}
 
-//   const meta = document.createElement('meta');
-//   meta.name = 'viewport';
-//   meta.content = 'initial-scale=1.0, user-scalable=no';
-//   document.getElementsByTagName('head')[0].appendChild(meta);
-//   container.className = 'unity-mobile';
-//   canvas.className = 'unity-mobile';
-//   fullscreenButton.classList.add('unity-mobile');
+if (isMobile(navigator).phone) {
+  // Mobile device style: fill the whole browser client area with the game canvas:
+  const htmlElement = document.querySelector("html") as HTMLHtmlElement;
+  htmlElement.dataset.mobile = "true";
 
-//   if (isMobile(navigator).apple.phone) {
-//     fullscreenButton.style.display = 'none';
-//   }
-
-//   // To lower canvas resolution on mobile devices to gain some
-//   // performance, uncomment the following line:
-//   // config.devicePixelRatio = 1;
-// } else {
-//   // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-//   // canvas.style.width = "1280px";
-//   // canvas.style.height = "720px";
-// }
+  // To lower canvas resolution on mobile devices to gain some
+  // performance, uncomment the following line:
+  // config.devicePixelRatio = 1;
+} else {
+  // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+  // canvas.style.width = "1280px";
+  // canvas.style.height = "720px";
+}
 
 function resetUnityIndexedDB() {
   const indexedDB =
@@ -96,6 +120,7 @@ script.onload = () => {
   })
     .then((unityInstance: Window['unityInstance']) => {
       loadingBar.style.display = 'none';
+      requestShowFullscreenButton();
       window.unityInstance = unityInstance;
       fullscreenButton.onclick = () => {
         unityInstance?.SetFullscreen(1);
